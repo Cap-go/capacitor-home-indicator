@@ -2,6 +2,159 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.75](https://github.com/Cap-go/home-indicator/compare/6.0.74...6.0.75) (2025-02-03)
+
+### [6.0.74](https://github.com/Cap-go/home-indicator/compare/6.0.73...6.0.74) (2025-01-27)
+
+### [6.0.73](https://github.com/Cap-go/home-indicator/compare/6.0.72...6.0.73) (2025-01-23)
+
+### [6.0.72](https://github.com/Cap-go/home-indicator/compare/6.0.71...6.0.72) (2025-01-06)
+
+### [6.0.71](https://github.com/Cap-go/home-indicator/compare/6.0.70...6.0.71) (2024-12-23)
+
+### [6.0.70](https://github.com/Cap-go/home-indicator/compare/6.0.69...6.0.70) (2024-12-23)
+
+### [6.0.69](https://github.com/Cap-go/home-indicator/compare/6.0.68...6.0.69) (2024-12-23)
+
+### [6.0.68](https://github.com/Cap-go/home-indicator/compare/6.0.67...6.0.68) (2024-12-16)
+
+### [6.0.67](https://github.com/Cap-go/home-indicator/compare/6.0.66...6.0.67) (2024-12-16)
+
+### [6.0.66](https://github.com/Cap-go/home-indicator/compare/6.0.65...6.0.66) (2024-12-16)
+
+### [6.0.65](https://github.com/Cap-go/home-indicator/compare/6.0.64...6.0.65) (2024-12-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.android.tools.build:gradle to v8.7.3 ([#96](https://github.com/Cap-go/home-indicator/issues/96)) ([4027154](https://github.com/Cap-go/home-indicator/commit/402715436df855f4912fd00d6ccc1909a94d542f))
+
+### [6.0.64](https://github.com/Cap-go/home-indicator/compare/6.0.63...6.0.64) (2024-11-25)
+
+### [6.0.63](https://github.com/Cap-go/home-indicator/compare/6.0.62...6.0.63) (2024-11-25)
+
+### [6.0.62](https://github.com/Cap-go/home-indicator/compare/6.0.61...6.0.62) (2024-11-18)
+
+### [6.0.61](https://github.com/Cap-go/home-indicator/compare/6.0.60...6.0.61) (2024-11-18)
+
+### [6.0.60](https://github.com/Cap-go/home-indicator/compare/6.0.59...6.0.60) (2024-11-11)
+
+### [6.0.59](https://github.com/Cap-go/home-indicator/compare/6.0.58...6.0.59) (2024-11-11)
+
+### [6.0.58](https://github.com/Cap-go/home-indicator/compare/6.0.57...6.0.58) (2024-11-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.android.tools.build:gradle to v8.7.2 ([47040d5](https://github.com/Cap-go/home-indicator/commit/47040d5e2aa088bf84f3f569ba845b69be2a5b4d))
+
+### [6.0.57](https://github.com/Cap-go/home-indicator/compare/6.0.56...6.0.57) (2024-11-04)
+
+### [6.0.56](https://github.com/Cap-go/home-indicator/compare/6.0.55...6.0.56) (2024-10-28)
+
+### [6.0.55](https://github.com/Cap-go/home-indicator/compare/6.0.54...6.0.55) (2024-10-28)
+
+### [6.0.54](https://github.com/Cap-go/home-indicator/compare/6.0.53...6.0.54) (2024-10-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.android.tools.build:gradle to v8.7.1 ([9e0a58f](https://github.com/Cap-go/home-indicator/commit/9e0a58f5e5fe0f9aa25c181eb89db578109f6c53))
+
+### [6.0.53](https://github.com/Cap-go/home-indicator/compare/6.0.52...6.0.53) (2024-10-21)
+
+### [6.0.52](https://github.com/Cap-go/home-indicator/compare/6.0.51...6.0.52) (2024-10-21)
+
+### [6.0.51](https://github.com/Cap-go/home-indicator/compare/6.0.50...6.0.51) (2024-10-14)
+
+### [6.0.50](https://github.com/Cap-go/home-indicator/compare/6.0.49...6.0.50) (2024-09-30)
+
+### [6.0.49](https://github.com/Cap-go/home-indicator/compare/6.0.48...6.0.49) (2024-09-30)
+
+### [6.0.48](https://github.com/Cap-go/home-indicator/compare/6.0.47...6.0.48) (2024-09-23)
+
+### [6.0.47](https://github.com/Cap-go/home-indicator/compare/6.0.46...6.0.47) (2024-09-23)
+
+### [6.0.46](https://github.com/Cap-go/home-indicator/compare/6.0.45...6.0.46) (2024-09-23)
+
+### [6.0.45](https://github.com/Cap-go/home-indicator/compare/6.0.44...6.0.45) (2024-09-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.android.tools.build:gradle to v8.6.1 ([e0e0e6d](https://github.com/Cap-go/home-indicator/commit/e0e0e6ddc8ac117aefa6bed589dc2f604bf19743))
+
+### [6.0.44](https://github.com/Cap-go/home-indicator/compare/6.0.43...6.0.44) (2024-09-16)
+
+### [6.0.43](https://github.com/Cap-go/home-indicator/compare/6.0.42...6.0.43) (2024-09-16)
+
+### [6.0.42](https://github.com/Cap-go/home-indicator/compare/6.0.41...6.0.42) (2024-09-09)
+
+### [6.0.41](https://github.com/Cap-go/home-indicator/compare/6.0.40...6.0.41) (2024-09-09)
+
+### [6.0.40](https://github.com/Cap-go/home-indicator/compare/6.0.39...6.0.40) (2024-09-05)
+
+### [6.0.39](https://github.com/Cap-go/home-indicator/compare/6.0.38...6.0.39) (2024-09-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.android.tools.build:gradle to v8.6.0 ([3508278](https://github.com/Cap-go/home-indicator/commit/3508278744724cd4bd47e5e15293debb89bc985f))
+
+### [6.0.38](https://github.com/Cap-go/home-indicator/compare/6.0.37...6.0.38) (2024-09-02)
+
+### [6.0.37](https://github.com/Cap-go/home-indicator/compare/6.0.36...6.0.37) (2024-08-26)
+
+### [6.0.36](https://github.com/Cap-go/home-indicator/compare/6.0.35...6.0.36) (2024-08-26)
+
+### [6.0.35](https://github.com/Cap-go/home-indicator/compare/6.0.34...6.0.35) (2024-08-19)
+
+### [6.0.34](https://github.com/Cap-go/home-indicator/compare/6.0.33...6.0.34) (2024-08-19)
+
+### [6.0.33](https://github.com/Cap-go/home-indicator/compare/6.0.32...6.0.33) (2024-08-19)
+
+### [6.0.32](https://github.com/Cap-go/home-indicator/compare/6.0.31...6.0.32) (2024-08-19)
+
+### [6.0.31](https://github.com/Cap-go/home-indicator/compare/6.0.30...6.0.31) (2024-08-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.android.tools.build:gradle to v8.5.2 ([aa1f1d8](https://github.com/Cap-go/home-indicator/commit/aa1f1d8973f66b00393411ba059a8cb9aed8695e))
+
+### [6.0.30](https://github.com/Cap-go/home-indicator/compare/6.0.29...6.0.30) (2024-08-12)
+
+### [6.0.29](https://github.com/Cap-go/home-indicator/compare/6.0.28...6.0.29) (2024-08-05)
+
+### [6.0.28](https://github.com/Cap-go/home-indicator/compare/6.0.27...6.0.28) (2024-08-05)
+
+### [6.0.27](https://github.com/Cap-go/home-indicator/compare/6.0.26...6.0.27) (2024-08-05)
+
+### [6.0.26](https://github.com/Cap-go/home-indicator/compare/6.0.25...6.0.26) (2024-07-29)
+
+### [6.0.25](https://github.com/Cap-go/home-indicator/compare/6.0.24...6.0.25) (2024-07-29)
+
+### [6.0.24](https://github.com/Cap-go/home-indicator/compare/6.0.23...6.0.24) (2024-07-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.android.tools.build:gradle to v8.5.1 ([8095133](https://github.com/Cap-go/home-indicator/commit/80951339bd4313a45168e06b71e30305760d80fe))
+
+### [6.0.23](https://github.com/Cap-go/home-indicator/compare/6.0.22...6.0.23) (2024-07-29)
+
+### [6.0.22](https://github.com/Cap-go/home-indicator/compare/6.0.21...6.0.22) (2024-07-22)
+
+### [6.0.21](https://github.com/Cap-go/home-indicator/compare/6.0.20...6.0.21) (2024-07-22)
+
+### [6.0.20](https://github.com/Cap-go/home-indicator/compare/6.0.19...6.0.20) (2024-07-15)
+
+### [6.0.19](https://github.com/Cap-go/home-indicator/compare/6.0.18...6.0.19) (2024-07-15)
+
+### [6.0.18](https://github.com/Cap-go/home-indicator/compare/6.0.17...6.0.18) (2024-07-08)
+
+### [6.0.17](https://github.com/Cap-go/home-indicator/compare/6.0.16...6.0.17) (2024-07-08)
+
 ### [6.0.16](https://github.com/Cap-go/home-indicator/compare/6.0.15...6.0.16) (2024-07-01)
 
 
