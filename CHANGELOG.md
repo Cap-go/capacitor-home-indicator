@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.1.0](https://github.com/Cap-go/home-indicator/compare/6.0.75...7.1.0) (2025-07-19)
+
+
+### Features
+
+* migrate to capacitor v7 ([ed43c35](https://github.com/Cap-go/home-indicator/commit/ed43c35c59688369fa9ba57295ce94e777930dd4))
+
 ### [6.0.75](https://github.com/Cap-go/home-indicator/compare/6.0.74...6.0.75) (2025-02-03)
 
 ### [6.0.74](https://github.com/Cap-go/home-indicator/compare/6.0.73...6.0.74) (2025-01-27)
