@@ -24,7 +24,7 @@ extension CAPBridgeViewController {
 }
 
 @objc(HomeIndicatorPlugin)
-public class HomeIndicatorPlugin: CAPPlugin {
+public class HomeIndicatorPlugin: CAPPlugin, CAPBridgedPlugin {
 
     private let PLUGIN_VERSION = "0.1.8"
 
