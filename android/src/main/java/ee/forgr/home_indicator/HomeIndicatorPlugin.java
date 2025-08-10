@@ -21,8 +21,10 @@ public class HomeIndicatorPlugin extends Plugin {
   private int previousOrientation = Configuration.ORIENTATION_UNDEFINED;
 
   public void UiChangeListener() {
-    final View decorView =
-      this.getBridge().getActivity().getWindow().getDecorView();
+    final View decorView = this.getBridge()
+      .getActivity()
+      .getWindow()
+      .getDecorView();
     decorView.setOnSystemUiVisibilityChangeListener(
       new View.OnSystemUiVisibilityChangeListener() {
         @Override
@@ -36,22 +38,20 @@ public class HomeIndicatorPlugin extends Plugin {
 
   private void setCssVar() {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-      WindowInsets windowInsets =
-        this.getBridge()
-          .getActivity()
-          .getWindow()
-          .getDecorView()
-          .getRootWindowInsets();
+      WindowInsets windowInsets = this.getBridge()
+        .getActivity()
+        .getWindow()
+        .getDecorView()
+        .getRootWindowInsets();
       if (windowInsets == null) {
         return;
       }
       var res = windowInsets.getInsets(WindowInsets.Type.systemBars());
-      float density =
-        this.getBridge()
-          .getActivity()
-          .getResources()
-          .getDisplayMetrics()
-          .density;
+      float density = this.getBridge()
+        .getActivity()
+        .getResources()
+        .getDisplayMetrics()
+        .density;
       getBridge()
         .getWebView()
         .evaluateJavascript(
@@ -102,8 +102,7 @@ public class HomeIndicatorPlugin extends Plugin {
   public void load() {
     super.load();
     this.UiChangeListener();
-    getActivity()
-      .runOnUiThread(
+    getActivity().runOnUiThread(
         new Runnable() {
           @Override
           public void run() {
@@ -116,8 +115,7 @@ public class HomeIndicatorPlugin extends Plugin {
       );
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
       // start task after 500ms in android
-      new Handler()
-        .postDelayed(
+      new Handler().postDelayed(
           new Runnable() {
             @Override
             public void run() {
@@ -131,11 +129,10 @@ public class HomeIndicatorPlugin extends Plugin {
     orientationEventListener = new OrientationEventListener(getContext()) {
       @Override
       public void onOrientationChanged(int orientation) {
-        int currentOrientation =
-          HomeIndicatorPlugin.this.bridge.getActivity()
-            .getResources()
-            .getConfiguration()
-            .orientation;
+        int currentOrientation = HomeIndicatorPlugin.this.bridge.getActivity()
+          .getResources()
+          .getConfiguration()
+          .orientation;
         if (currentOrientation != previousOrientation) {
           previousOrientation = currentOrientation;
           Log.i("HomeIndicator", "onOrientationChanged " + currentOrientation);
@@ -149,8 +146,7 @@ public class HomeIndicatorPlugin extends Plugin {
 
   @PluginMethod
   public void hide(PluginCall call) {
-    getActivity()
-      .runOnUiThread(
+    getActivity().runOnUiThread(
         new Runnable() {
           @Override
           public void run() {
@@ -167,8 +163,7 @@ public class HomeIndicatorPlugin extends Plugin {
 
   @PluginMethod
   public void show(PluginCall call) {
-    getActivity()
-      .runOnUiThread(
+    getActivity().runOnUiThread(
         new Runnable() {
           @Override
           public void run() {
@@ -185,8 +180,7 @@ public class HomeIndicatorPlugin extends Plugin {
 
   @PluginMethod
   public void isHidden(PluginCall call) {
-    getActivity()
-      .runOnUiThread(
+    getActivity().runOnUiThread(
         new Runnable() {
           @Override
           public void run() {
