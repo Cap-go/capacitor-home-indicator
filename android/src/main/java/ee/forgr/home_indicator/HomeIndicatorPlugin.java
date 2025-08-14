@@ -107,9 +107,7 @@ public class HomeIndicatorPlugin extends Plugin {
         new Runnable() {
           @Override
           public void run() {
-            View decorView = getActivity().getWindow().getDecorView();
-            int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-            decorView.setSystemUiVisibility(uiOptions);
+            // Don't set any UI visibility flags on load - let the app control this
             HomeIndicatorPlugin.this.setCssVar();
           }
         }
@@ -173,8 +171,10 @@ public class HomeIndicatorPlugin extends Plugin {
           @Override
           public void run() {
             View decorView = getActivity().getWindow().getDecorView();
-            int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-            decorView.setSystemUiVisibility(uiOptions);
+            // Get current flags and remove only the navigation-related ones
+            int currentFlags = decorView.getSystemUiVisibility();
+            int newFlags = currentFlags & ~View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+            decorView.setSystemUiVisibility(newFlags);
             HomeIndicatorPlugin.this.setCssVar();
             JSObject ret = new JSObject();
             call.resolve(ret);
