@@ -25,8 +25,17 @@ extension CAPBridgeViewController {
 
 @objc(HomeIndicatorPlugin)
 public class HomeIndicatorPlugin: CAPPlugin, CAPBridgedPlugin {
+    
+    public let identifier = "HomeIndicatorPlugin"
+    public let jsName = "HomeIndicator"
+    public let pluginMethods: [CAPPluginMethod] = [
+        CAPPluginMethod(name: "hide", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "show", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "isHidden", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "getPluginVersion", returnType: CAPPluginReturnPromise)
+    ]
 
-    private let PLUGIN_VERSION = "0.1.8"
+    private let PLUGIN_VERSION = "7.1.1"
 
     @objc func getPluginVersion(_ call: CAPPluginCall) {
         call.resolve(["version": self.PLUGIN_VERSION])
