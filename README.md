@@ -18,8 +18,6 @@ update your `MainActivity.java` file to add the following code:
 
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.WindowInsets;
 
 import com.getcapacitor.BridgeActivity;
 
