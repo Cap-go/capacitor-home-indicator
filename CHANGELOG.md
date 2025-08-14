@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.1.3](https://github.com/Cap-go/home-indicator/compare/7.1.2...7.1.3) (2025-08-14)
+
+
+### Bug Fixes
+
+* test ci ([7bc1960](https://github.com/Cap-go/home-indicator/commit/7bc196057eec19900b98e83877741f8c7dce53dc))
+
 ## [7.1.2](https://github.com/Cap-go/home-indicator/compare/7.1.1...7.1.2) (2025-08-14)
 
 ## [7.1.1](https://github.com/Cap-go/home-indicator/compare/7.1.0...7.1.1) (2025-08-14)
