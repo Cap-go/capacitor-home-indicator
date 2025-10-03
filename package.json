@@ -1,77 +1,79 @@
 {
-  "name": "@capgo/home-indicator",
-  "version": "7.1.5",
-  "description": "hide and show home button indicator in Capacitor app",
-  "main": "dist/plugin.cjs.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/esm/index.d.ts",
-  "unpkg": "dist/plugin.js",
-  "files": [
-    "android/src/main/",
-    "android/build.gradle",
-    "dist/",
-    "ios/Plugin/",
-    "CapgoHomeIndicator.podspec"
-  ],
-  "author": "Martin Donadieu",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Cap-go/home-indicator.git"
+  "types" : "dist/esm/index.d.ts",
+  "scripts" : {
+    "prepublishOnly" : "npm run build",
+    "verify:android" : "cd android && ./gradlew clean build test && cd ..",
+    "verify" : "npm run verify:ios && npm run verify:android && npm run verify:web",
+    "watch" : "tsc --watch",
+    "verify:ios" : "xcodebuild -scheme CapgoHomeIndicator -destination generic/platform=iOS",
+    "clean" : "rimraf ./dist",
+    "build" : "npm run clean && npm run docgen && tsc && rollup -c rollup.config.mjs",
+    "lint" : "npm run eslint && npm run prettier -- --check && npm run swiftlint -- lint",
+    "verify:web" : "npm run build",
+    "fmt" : "npm run eslint -- --fix && npm run prettier -- --write && npm run swiftlint -- --autocorrect --format",
+    "docgen" : "docgen --api HomeIndicatorPlugin --output-readme README.md --output-json dist/docs.json",
+    "eslint" : "eslint .",
+    "prettier" : "prettier --config .prettierrc.js \"**/*.{css,html,ts,js,java}\"",
+    "swiftlint" : "node-swiftlint"
   },
-  "bugs": {
-    "url": "https://github.com/Cap-go/home-indicator/issues"
-  },
-  "keywords": [
+  "keywords" : [
     "capacitor",
     "plugin",
     "home indicator",
     "ios",
     "native"
   ],
-  "scripts": {
-    "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
-    "verify:ios": "cd ios && pod install && xcodebuild -workspace Plugin.xcworkspace -scheme Plugin -destination generic/platform=iOS && cd ..",
-    "verify:android": "cd android && ./gradlew clean build test && cd ..",
-    "verify:web": "npm run build",
-    "lint": "npm run eslint && npm run prettier -- --check && npm run swiftlint -- lint",
-    "fmt": "npm run eslint -- --fix && npm run prettier -- --write && npm run swiftlint -- --autocorrect --format",
-    "eslint": "eslint .",
-    "prettier": "prettier --config .prettierrc.js \"**/*.{css,html,ts,js,java}\"",
-    "swiftlint": "node-swiftlint",
-    "docgen": "docgen --api HomeIndicatorPlugin --output-readme README.md --output-json dist/docs.json",
-    "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.mjs",
-    "clean": "rimraf ./dist",
-    "watch": "tsc --watch",
-    "prepublishOnly": "npm run build"
-  },
-  "devDependencies": {
-    "@capacitor/android": "^7.0.0",
-    "@capacitor/core": "^7.0.0",
-    "@capacitor/docgen": "^0.3.0",
-    "@capacitor/ios": "^7.0.0",
-    "@ionic/eslint-config": "^0.4.0",
-    "@ionic/prettier-config": "^4.0.0",
-    "@ionic/swiftlint-config": "^2.0.0",
-    "eslint": "^8.57.0",
-    "prettier": "^3.4.2",
-    "prettier-plugin-java": "^2.6.6",
-    "rimraf": "^6.0.1",
-    "rollup": "^4.30.1",
-    "swiftlint": "^2.0.0",
-    "typescript": "~5.9.0"
-  },
-  "peerDependencies": {
-    "@capacitor/core": ">=7.0.0"
-  },
-  "prettier": "@ionic/prettier-config",
-  "swiftlint": "@ionic/swiftlint-config",
-  "capacitor": {
-    "ios": {
-      "src": "ios"
+  "author" : "Martin Donadieu",
+  "description" : "hide and show home button indicator in Capacitor app",
+  "files" : [
+    "android/src/main/",
+    "android/build.gradle",
+    "dist/",
+    "CapgoHomeIndicator.podspec",
+    "ios/Sources",
+    "ios/Tests",
+    "Package.swift"
+  ],
+  "prettier" : "@ionic/prettier-config",
+  "capacitor" : {
+    "android" : {
+      "src" : "android"
     },
-    "android": {
-      "src": "android"
+    "ios" : {
+      "src" : "ios"
     }
-  }
+  },
+  "name" : "@capgo/home-indicator",
+  "devDependencies" : {
+    "@capacitor/ios" : "^7.0.0",
+    "swiftlint" : "^2.0.0",
+    "rollup" : "^4.30.1",
+    "@ionic/swiftlint-config" : "^2.0.0",
+    "prettier-plugin-java" : "^2.6.6",
+    "prettier" : "^3.4.2",
+    "eslint" : "^8.57.0",
+    "@ionic/prettier-config" : "^4.0.0",
+    "typescript" : "~5.9.0",
+    "@capacitor/docgen" : "^0.3.0",
+    "rimraf" : "^6.0.1",
+    "@capacitor/core" : "^7.0.0",
+    "@ionic/eslint-config" : "^0.4.0",
+    "@capacitor/android" : "^7.0.0"
+  },
+  "peerDependencies" : {
+    "@capacitor/core" : ">=7.0.0"
+  },
+  "main" : "dist/plugin.cjs.js",
+  "repository" : {
+    "url" : "git+https://github.com/Cap-go/home-indicator.git",
+    "type" : "git"
+  },
+  "version" : "7.1.5",
+  "unpkg" : "dist/plugin.js",
+  "module" : "dist/esm/index.js",
+  "bugs" : {
+    "url" : "https://github.com/Cap-go/home-indicator/issues"
+  },
+  "swiftlint" : "@ionic/swiftlint-config",
+  "license" : "MIT"
 }
