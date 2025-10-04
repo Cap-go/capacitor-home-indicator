@@ -68,3 +68,5 @@ DerivedData/
 .netrc
 Package.resolved
 /.build
+
+.codex

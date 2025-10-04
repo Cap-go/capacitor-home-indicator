@@ -1,4 +1,4 @@
-package com.example.plugin.capgo.homeidentifier;
+package app.capgo.plugin.HomeIndicator;
 
 import com.getcapacitor.BridgeActivity;
 

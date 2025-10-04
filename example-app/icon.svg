@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-top-left">
+      <rect x="0" y="0" width="50" height="50" />
+    </clipPath>
+    <clipPath id="clip-top-right">
+      <rect x="50" y="0" width="50" height="50" />
+    </clipPath>
+    <clipPath id="clip-bottom-left">
+      <rect x="0" y="50" width="50" height="50" />
+    </clipPath>
+    <clipPath id="clip-bottom-right">
+      <rect x="50" y="50" width="50" height="50" />
+    </clipPath>
+  </defs>
+  <rect x="0" y="0" width="50" height="50" fill="#F4E7E1" />
+  <rect x="50" y="0" width="50" height="50" fill="#FF9B45" />
+  <rect x="0" y="50" width="50" height="50" fill="#D5451B" />
+  <rect x="50" y="50" width="50" height="50" fill="#521C0D" />
+  <text x="18.67" y="50" font-size="60" font-family="monospace" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" clip-path="url(#clip-top-left)" fill="#0b181e">A</text>
+  <text x="18.67" y="50" font-size="60" font-family="monospace" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" clip-path="url(#clip-bottom-left)" fill="#2abae4">A</text>
+  <text x="50.00" y="50" font-size="60" font-family="monospace" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" clip-path="url(#clip-top-left)" fill="#0b181e">D</text>
+  <text x="50.00" y="50" font-size="60" font-family="monospace" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" clip-path="url(#clip-bottom-left)" fill="#2abae4">D</text>
+  <text x="50.00" y="50" font-size="60" font-family="monospace" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" clip-path="url(#clip-top-right)" fill="#0064ba">D</text>
+  <text x="50.00" y="50" font-size="60" font-family="monospace" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" clip-path="url(#clip-bottom-right)" fill="#ade3f2">D</text>
+  <text x="81.33" y="50" font-size="60" font-family="monospace" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" clip-path="url(#clip-top-right)" fill="#0064ba">B</text>
+  <text x="81.33" y="50" font-size="60" font-family="monospace" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" clip-path="url(#clip-bottom-right)" fill="#ade3f2">B</text>
+</svg>

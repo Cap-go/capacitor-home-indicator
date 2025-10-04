@@ -26,34 +26,36 @@ Paste the output from the `npx @capgo/cli@latest doctor` command into the code b
 PASTE OUTPUT HERE
 ```
 
-### Platform(s)
+### context(s)
 <!--
-List the platforms that this bug affects.
+Please describe the context of the bug.
 -->
 
+### Platform(s) Affected
 
+<!--
+Check all that apply by putting an "x" in the brackets, e.g. [x]
+-->
+
+- [ ] iOS
+- [ ] Android
+- [ ] Web
 
 ### Current Behavior
 <!--
 Describe how the bug manifests. Be specific.
 -->
 
-
-
 ### Expected Behavior
 <!--
 Describe what the behavior should be.
 -->
-
-
 
 ### Code Reproduction
 <!--
 To isolate the cause of the problem, we ask you to provide a minimal sample application that demonstrates the issue.
 For full instructions, see: https://github.com/ionic-team/capacitor/blob/HEAD/CONTRIBUTING.md#creating-a-code-reproduction
 -->
-
-
 
 ### Other Technical Details
 <!--

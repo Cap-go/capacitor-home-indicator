@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "com.example.plugin.capgo.homeidentifier"
+    namespace "app.capgo.plugin.HomeIndicator"
     compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.example.plugin.capgo.homeidentifier"
+        applicationId "app.capgo.plugin.HomeIndicator"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

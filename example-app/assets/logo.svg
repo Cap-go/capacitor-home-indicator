@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="letter-clip-0">
+      <path d="M 69 0 L 69 714 L 226 714 L 226 406 L 515 406 L 515 714 L 672 714 L 672 0 L 515 0 L 515 274 L 226 274 L 226 0 Z" transform="translate(2.027,7.500) scale(0.079,0.119)" />
+    </clipPath>
+    <clipPath id="letter-clip-1">
+      <path d="M 69 0 L 69 714 L 226 714 L 226 0 Z" transform="translate(63.630,7.500) scale(0.079,0.119)" />
+    </clipPath>
+  </defs>
+  <rect x="0" y="0" width="50" height="50" fill="#722323" />
+  <rect x="50" y="0" width="50" height="50" fill="#BA487F" />
+  <rect x="0" y="50" width="50" height="50" fill="#FF9587" />
+  <rect x="50" y="50" width="50" height="50" fill="#FFECCC" />
+  <g clip-path="url(#letter-clip-0)">
+    <path d="M 0 0 H 100 V 50 H 0 Z" fill="#8ddcdc" />
+    <path d="M 0 50 H 100 V 100 H 0 Z" fill="#006a78" />
+  </g>
+  <g clip-path="url(#letter-clip-1)">
+    <path d="M 0 0 H 100 V 50 H 0 Z" fill="#45b780" />
+    <path d="M 0 50 H 100 V 100 H 0 Z" fill="#001333" />
+  </g>
+</svg>
