@@ -154,7 +154,10 @@ const ensureGlyphTool = async (projectDir: string) => {
   return toolPath;
 };
 
-const runGlyphTool = async (projectDir: string, text: string): Promise<RawGlyph[]> => {
+const runGlyphTool = async (
+  projectDir: string,
+  text: string,
+): Promise<RawGlyph[]> => {
   if (glyphCache.has(text)) {
     return glyphCache.get(text)!;
   }
@@ -163,7 +166,14 @@ const runGlyphTool = async (projectDir: string, text: string): Promise<RawGlyph[
   const moduleCacheDir = join(projectDir, ".codex/swift-module-cache");
   await mkdir(moduleCacheDir, { recursive: true });
   const child = Bun.spawn({
-    cmd: ["swift", "-module-cache-path", moduleCacheDir, toolPath, FONT_NAME, text],
+    cmd: [
+      "swift",
+      "-module-cache-path",
+      moduleCacheDir,
+      toolPath,
+      FONT_NAME,
+      text,
+    ],
     cwd: projectDir,
     stdout: "pipe",
     stderr: "pipe",
@@ -188,17 +198,29 @@ const runGlyphTool = async (projectDir: string, text: string): Promise<RawGlyph[
     glyphCache.set(text, parsed);
     return parsed;
   } catch (error) {
-    throw new Error(`Failed to parse glyph data for "${text}": ${(error as Error).message}`);
+    throw new Error(
+      `Failed to parse glyph data for "${text}": ${(error as Error).message}`,
+    );
   }
 };
 
-const pathRect = (x: number, y: number, width: number, height: number, fill: string) =>
+const pathRect = (
+  x: number,
+  y: number,
+  width: number,
+  height: number,
+  fill: string,
+) =>
   `    <path d="M ${x} ${y} H ${x + width} V ${y + height} H ${x} Z" fill="${fill}" />`;
 
 const invertHexColour = (hex: string) => {
   const normalised = hex.replace("#", "");
-  const [r, g, b] = [0, 2, 4].map((index) => parseInt(normalised.slice(index, index + 2), 16));
-  const inverted = [r, g, b].map((channel) => (255 - channel).toString(16).padStart(2, "0"));
+  const [r, g, b] = [0, 2, 4].map((index) =>
+    parseInt(normalised.slice(index, index + 2), 16),
+  );
+  const inverted = [r, g, b].map((channel) =>
+    (255 - channel).toString(16).padStart(2, "0"),
+  );
   return `#${inverted.join("")}`;
 };
 
@@ -238,9 +260,12 @@ const buildLetterElements = async (
     let total = totalWidthWithSpacing(horizontalScale, spacing);
     if (total > availableWidth && spacing > minimumSpacing) {
       const excess = total - availableWidth;
-      const spacingReductionCapacity = (spacing - minimumSpacing) * (letters.length - 1);
+      const spacingReductionCapacity =
+        (spacing - minimumSpacing) * (letters.length - 1);
       if (spacingReductionCapacity > 0) {
-        const adjustedSpacing = spacing - Math.min(excess, spacingReductionCapacity) / (letters.length - 1);
+        const adjustedSpacing =
+          spacing -
+          Math.min(excess, spacingReductionCapacity) / (letters.length - 1);
         spacing = Math.max(adjustedSpacing, minimumSpacing);
         total = totalWidthWithSpacing(horizontalScale, spacing);
       }
@@ -254,8 +279,14 @@ const buildLetterElements = async (
     }
   }
 
-  const topFills = [invertHexColour(topLeft), invertHexColour(topRight)] as const;
-  const bottomFills = [invertHexColour(bottomLeft), invertHexColour(bottomRight)] as const;
+  const topFills = [
+    invertHexColour(topLeft),
+    invertHexColour(topRight),
+  ] as const;
+  const bottomFills = [
+    invertHexColour(bottomLeft),
+    invertHexColour(bottomRight),
+  ] as const;
 
   const clipDefs: string[] = [];
   const fillGroups: string[] = [];
@@ -268,8 +299,7 @@ const buildLetterElements = async (
     const clipId = `letter-clip-${index}`;
     const letterHeight = glyph.height * verticalScale;
     const yOffset = 50 - letterHeight / 2;
-    const transform =
-      `translate(${(currentLeft - glyph.minX * horizontalScale).toFixed(3)},${yOffset.toFixed(3)}) scale(${horizontalScale.toFixed(3)},${verticalScale.toFixed(3)})`;
+    const transform = `translate(${(currentLeft - glyph.minX * horizontalScale).toFixed(3)},${yOffset.toFixed(3)}) scale(${horizontalScale.toFixed(3)},${verticalScale.toFixed(3)})`;
 
     clipDefs.push(
       `    <clipPath id="${clipId}">\n` +
@@ -278,7 +308,8 @@ const buildLetterElements = async (
     );
 
     const letterLeft = currentLeft;
-    const letterRight = currentLeft + (glyph.maxX - glyph.minX) * horizontalScale;
+    const letterRight =
+      currentLeft + (glyph.maxX - glyph.minX) * horizontalScale;
 
     if (letters.length === 3 && index === 1) {
       fillGroups.push(
@@ -290,13 +321,22 @@ const buildLetterElements = async (
           `  </g>`,
       );
     } else {
-      const leftOverlap = Math.max(0, Math.min(50, letterRight) - Math.max(0, letterLeft));
-      const rightOverlap = Math.max(0, Math.min(100, letterRight) - Math.max(50, letterLeft));
+      const leftOverlap = Math.max(
+        0,
+        Math.min(50, letterRight) - Math.max(0, letterLeft),
+      );
+      const rightOverlap = Math.max(
+        0,
+        Math.min(100, letterRight) - Math.max(50, letterLeft),
+      );
 
       let column: 0 | 1 = 0;
       if (rightOverlap > leftOverlap) {
         column = 1;
-      } else if (rightOverlap === leftOverlap && letterLeft + (letterRight - letterLeft) / 2 >= 50) {
+      } else if (
+        rightOverlap === leftOverlap &&
+        letterLeft + (letterRight - letterLeft) / 2 >= 50
+      ) {
         column = 1;
       }
 
@@ -317,7 +357,11 @@ const buildLetterElements = async (
   } as const;
 };
 
-export const generateIconSvg = async (shortName: string, fullName: string, outputPath: string) => {
+export const generateIconSvg = async (
+  shortName: string,
+  fullName: string,
+  outputPath: string,
+) => {
   const palette = pickPalette();
   const [topLeft, topRight, bottomLeft, bottomRight] = palette;
 
@@ -335,7 +379,8 @@ export const generateIconSvg = async (shortName: string, fullName: string, outpu
     bottomRight,
   );
 
-  const svg = `<?xml version="1.0" encoding="UTF-8"?>\n` +
+  const svg =
+    `<?xml version="1.0" encoding="UTF-8"?>\n` +
     `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 100 100">\n` +
     `  <defs>\n${clipPaths}\n  </defs>\n` +
     `  <rect x="0" y="0" width="50" height="50" fill="${topLeft}" />\n` +
@@ -376,9 +421,13 @@ export const parseCliArgs = (argv: string[]): CliArgs => {
 };
 
 const printUsage = () => {
-  console.error("Usage: bun run example-app/CapgoExampleAppSetup.ts <SHORT_NAME> <FULL_NAME>");
+  console.error(
+    "Usage: bun run example-app/CapgoExampleAppSetup.ts <SHORT_NAME> <FULL_NAME>",
+  );
   console.error("       SHORT_NAME: 1-3 characters (letters or digits)");
-  console.error("       FULL_NAME: the descriptive name (quotes required when containing spaces)");
+  console.error(
+    "       FULL_NAME: the descriptive name (quotes required when containing spaces)",
+  );
 };
 
 const toPascalCase = (value: string) =>
@@ -407,20 +456,30 @@ const runCommand = async (command: string, args: string[], cwd: string) => {
 
   const exitCode = await process.exited;
   if (exitCode !== 0) {
-    throw new Error(`Command failed (${command} ${args.join(" ")}) with exit code ${exitCode}`);
+    throw new Error(
+      `Command failed (${command} ${args.join(" ")}) with exit code ${exitCode}`,
+    );
   }
 };
 
 const ensureCapacitorAssets = async (projectDir: string) => {
   const packageJsonPath = join(projectDir, "package.json");
-  console.log(`[INFO] Checking dev dependency '@capacitor/assets' in ${packageJsonPath}`);
+  console.log(
+    `[INFO] Checking dev dependency '@capacitor/assets' in ${packageJsonPath}`,
+  );
   const packageJson = await readPackageJson(packageJsonPath);
   const devDependencies = packageJson.devDependencies ?? {};
 
   if (!devDependencies["@capacitor/assets"]) {
-    console.log("[INFO] '@capacitor/assets' not found. Installing as dev dependency.");
+    console.log(
+      "[INFO] '@capacitor/assets' not found. Installing as dev dependency.",
+    );
     try {
-      await runCommand("npm", ["install", "--save-dev", "@capacitor/assets"], projectDir);
+      await runCommand(
+        "npm",
+        ["install", "--save-dev", "@capacitor/assets"],
+        projectDir,
+      );
     } catch (error) {
       console.error("[ERROR] Failed to install @capacitor/assets");
       throw error;
@@ -429,15 +488,23 @@ const ensureCapacitorAssets = async (projectDir: string) => {
     if (updated.devDependencies?.["@capacitor/assets"]) {
       console.log("[INFO] Verified '@capacitor/assets' installation.");
     } else {
-      console.warn("[WARN] Unable to verify '@capacitor/assets' installation from package.json.");
+      console.warn(
+        "[WARN] Unable to verify '@capacitor/assets' installation from package.json.",
+      );
     }
   } else {
     console.log("[INFO] '@capacitor/assets' already present.");
   }
 };
 
-const configureMobileProjects = async (projectDir: string, appId: string, displayName: string) => {
-  console.log(`[INFO] Configuring mobile projects with Trapeze: ${displayName} (${appId})`);
+const configureMobileProjects = async (
+  projectDir: string,
+  appId: string,
+  displayName: string,
+) => {
+  console.log(
+    `[INFO] Configuring mobile projects with Trapeze: ${displayName} (${appId})`,
+  );
   const trapezeConfig: MobileProjectConfig = {
     ios: { path: "ios/App" },
     android: { path: "android" },
@@ -462,7 +529,9 @@ const configureMobileProjects = async (projectDir: string, appId: string, displa
     await project.android.setAppName(displayName);
     console.log("[INFO] Applied Android configuration");
   } else {
-    console.warn("[WARN] Android project not found. Skipping Android configuration.");
+    console.warn(
+      "[WARN] Android project not found. Skipping Android configuration.",
+    );
   }
 
   await project.commit();
@@ -513,7 +582,9 @@ const main = async () => {
     const svgPath = join(assetsDir, "logo.svg");
     await mkdir(assetsDir, { recursive: true });
     const svgResult = await generateIconSvg(shortName, fullName, svgPath);
-    console.log(`[INFO] Generated icon at ${svgResult.outputPath} using palette ${svgResult.palette.join(", ")}`);
+    console.log(
+      `[INFO] Generated icon at ${svgResult.outputPath} using palette ${svgResult.palette.join(", ")}`,
+    );
 
     await runCapacitorAssets(scriptDir);
 

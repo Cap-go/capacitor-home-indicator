@@ -60,10 +60,16 @@ const versionLabel = app.querySelector<HTMLElement>("[data-version]");
 const errorLabel = app.querySelector<HTMLParagraphElement>("[data-error]");
 const logList = app.querySelector<HTMLUListElement>("[data-log]");
 const buttons = Array.from(
-  app.querySelectorAll<HTMLButtonElement>("button[data-action]")
+  app.querySelectorAll<HTMLButtonElement>("button[data-action]"),
 );
 
-if (!platformLabel || !statusLabel || !versionLabel || !errorLabel || !logList) {
+if (
+  !platformLabel ||
+  !statusLabel ||
+  !versionLabel ||
+  !errorLabel ||
+  !logList
+) {
   throw new Error("Failed to initialize UI");
 }
 
@@ -73,7 +79,7 @@ platformLabel.textContent = platform;
 if (platform === "web") {
   appendLog(
     "Running on the web. Native calls will reject because the plugin is only available on device.",
-    "warn"
+    "warn",
   );
 }
 
@@ -84,7 +90,10 @@ function setBusy(isBusy: boolean): void {
   });
 }
 
-function appendLog(message: string, level: "info" | "error" | "warn" = "info"): void {
+function appendLog(
+  message: string,
+  level: "info" | "error" | "warn" = "info",
+): void {
   const item = document.createElement("li");
   item.dataset.level = level;
   const timestamp = new Date().toLocaleTimeString();
@@ -126,7 +135,10 @@ async function refreshVersion(): Promise<void> {
   }
 }
 
-async function perform(action: () => Promise<void>, label: string): Promise<void> {
+async function perform(
+  action: () => Promise<void>,
+  label: string,
+): Promise<void> {
   clearError();
   setBusy(true);
   appendLog(`${label}…`);
