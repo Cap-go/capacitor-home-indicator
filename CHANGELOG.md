@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.1.11](https://github.com/Cap-go/capacitor-home-indicator/compare/7.1.10...7.1.11) (2025-10-26)
+
+
+### Bug Fixes
+
+* prevent bump for app ([318bd8d](https://github.com/Cap-go/capacitor-home-indicator/commit/318bd8dae10a38236bee92dbf3a5529ef0656054))
+
 ## [7.1.10](https://github.com/Cap-go/capacitor-home-indicator/compare/7.1.9...7.1.10) (2025-10-26)
 
 ## [7.1.9](https://github.com/Cap-go/capacitor-home-indicator/compare/7.1.8...7.1.9) (2025-10-26)
