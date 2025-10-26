@@ -35,11 +35,12 @@ public class CapgoHomeIndicatorPlugin: CAPPlugin, CAPBridgedPlugin {
         CAPPluginMethod(name: "getPluginVersion", returnType: CAPPluginReturnPromise)
     ]
 
-    private let pluginVersion = "7.1.5"
+    private let PLUGIN_VERSION = "7.1.5"
 
     @objc func getPluginVersion(_ call: CAPPluginCall) {
-        call.resolve(["version": self.pluginVersion])
+        call.resolve(["version": self.PLUGIN_VERSION])
     }
+
     @objc func hide(_ call: CAPPluginCall) {
         guard let bridgeVC = self.bridge?.viewController as? CAPBridgeViewController else {
             call.reject("")
