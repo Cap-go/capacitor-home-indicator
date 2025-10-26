@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.1.6](https://github.com/Cap-go/home-indicator/compare/7.1.5...7.1.6) (2025-10-26)
+
+
+### Bug Fixes
+
+* migrate to new arch ([92e59db](https://github.com/Cap-go/home-indicator/commit/92e59dbbc41458897eee6acd4ecf8c50ba472742))
+
 ## [7.1.5](https://github.com/Cap-go/home-indicator/compare/7.1.4...7.1.5) (2025-08-18)
 
 ## [7.1.4](https://github.com/Cap-go/home-indicator/compare/7.1.3...7.1.4) (2025-08-14)
