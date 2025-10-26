@@ -59,6 +59,10 @@ And the update styles.xml to add the following code:
         </item>
 ```
 
+## Documentation
+
+The most complete doc is available here: https://capgo.app/docs/plugins/home-indicator/
+
 ## Install
 
 ```bash
