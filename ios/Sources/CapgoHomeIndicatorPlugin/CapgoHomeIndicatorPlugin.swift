@@ -4,29 +4,29 @@ import Capacitor
 extension CAPBridgeViewController {
 
     private struct Holder {
-        static var _setHomeIndicator: Bool = false
+        static var setHomeIndicator: Bool = false
     }
 
     public func getHomeIndicator() -> Bool {
-        return Holder._setHomeIndicator
+        return Holder.setHomeIndicator
     }
 
     public func hideHomeIndicator(_ ishomeIndicatorVisible: Bool) {
-        Holder._setHomeIndicator = ishomeIndicatorVisible
+        Holder.setHomeIndicator = ishomeIndicatorVisible
         self.setNeedsUpdateOfHomeIndicatorAutoHidden()
     }
 
     override public var prefersHomeIndicatorAutoHidden: Bool {
 
-        return Holder._setHomeIndicator
+        return Holder.setHomeIndicator
 
     }
 }
 
-@objc(HomeIndicatorPlugin)
-public class HomeIndicatorPlugin: CAPPlugin, CAPBridgedPlugin {
-    
-    public let identifier = "HomeIndicatorPlugin"
+@objc(CapgoHomeIndicatorPlugin)
+public class CapgoHomeIndicatorPlugin: CAPPlugin, CAPBridgedPlugin {
+
+    public let identifier = "CapgoHomeIndicatorPlugin"
     public let jsName = "HomeIndicator"
     public let pluginMethods: [CAPPluginMethod] = [
         CAPPluginMethod(name: "hide", returnType: CAPPluginReturnPromise),
@@ -35,10 +35,10 @@ public class HomeIndicatorPlugin: CAPPlugin, CAPBridgedPlugin {
         CAPPluginMethod(name: "getPluginVersion", returnType: CAPPluginReturnPromise)
     ]
 
-    private let PLUGIN_VERSION = "7.1.1"
+    private let pluginVersion = "7.1.5"
 
     @objc func getPluginVersion(_ call: CAPPluginCall) {
-        call.resolve(["version": self.PLUGIN_VERSION])
+        call.resolve(["version": self.pluginVersion])
     }
     @objc func hide(_ call: CAPPluginCall) {
         guard let bridgeVC = self.bridge?.viewController as? CAPBridgeViewController else {
