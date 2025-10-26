@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.1.9](https://github.com/Cap-go/capacitor-home-indicator/compare/7.1.8...7.1.9) (2025-10-26)
+
+
+### Bug Fixes
+
+* provenance ([7d1f731](https://github.com/Cap-go/capacitor-home-indicator/commit/7d1f731cb239a6298bd7a7589039ea82cefd285e))
+
 ## [7.1.8](https://github.com/Cap-go/capacitor-home-indicator/compare/7.1.7...7.1.8) (2025-10-26)
 
 
