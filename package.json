@@ -1,5 +1,5 @@
 {
-  "name": "@capgo/home-indicator",
+  "name": "@capgo/capacitor-home-indicator",
   "version": "7.1.6",
   "description": "hide and show home button indicator in Capacitor app",
   "main": "dist/plugin.cjs.js",
@@ -19,10 +19,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Cap-go/home-indicator.git"
+    "url": "git+https://github.com/Cap-go/capacitor-home-indicator/.git"
   },
   "bugs": {
-    "url": "https://github.com/Cap-go/home-indicator/issues"
+    "url": "https://github.com/Cap-go/capacitor-home-indicator/issues"
   },
   "keywords": [
     "capacitor",
