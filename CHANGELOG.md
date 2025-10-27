@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.1.13](https://github.com/Cap-go/capacitor-home-indicator/compare/7.1.12...7.1.13) (2025-10-27)
+
+
+### Bug Fixes
+
+* renovate capacitor dep ([92c6cef](https://github.com/Cap-go/capacitor-home-indicator/commit/92c6cef164c3c64dc6efb833b805a1d306b296a7))
+
 ## [7.1.12](https://github.com/Cap-go/capacitor-home-indicator/compare/7.1.11...7.1.12) (2025-10-27)
 
 ## [7.1.11](https://github.com/Cap-go/capacitor-home-indicator/compare/7.1.10...7.1.11) (2025-10-26)

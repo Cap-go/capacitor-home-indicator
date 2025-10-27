@@ -1,6 +1,6 @@
 {
   "name": "@capgo/capacitor-home-indicator",
-  "version": "7.1.12",
+  "version": "7.1.13",
   "description": "hide and show home button indicator in Capacitor app",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
