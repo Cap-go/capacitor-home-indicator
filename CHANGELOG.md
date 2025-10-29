@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.1.16](https://github.com/Cap-go/capacitor-home-indicator/compare/7.1.15...7.1.16) (2025-10-29)
+
+
+### Bug Fixes
+
+* update plugin version to 7.1.15 in Android and iOS implementations ([d2a8885](https://github.com/Cap-go/capacitor-home-indicator/commit/d2a88853702dc54adc9f7fab4b80d9604b510f42))
+
 ## [7.1.15](https://github.com/Cap-go/capacitor-home-indicator/compare/7.1.14...7.1.15) (2025-10-29)
 
 
