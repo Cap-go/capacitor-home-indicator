@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.1.15](https://github.com/Cap-go/capacitor-home-indicator/compare/7.1.14...7.1.15) (2025-10-29)
+
+
+### Bug Fixes
+
+* CI/CD config ([af390df](https://github.com/Cap-go/capacitor-home-indicator/commit/af390dfb2db648ea0385229b640739cde202a9f5))
+* update AI model in build workflow ([dce6afa](https://github.com/Cap-go/capacitor-home-indicator/commit/dce6afa6950b70726c3313e6f5b3ae63935b395b))
+* update github action ([5429644](https://github.com/Cap-go/capacitor-home-indicator/commit/5429644be0932465fca64d1fba0897ed88ac7951))
+
 ## [7.1.14](https://github.com/Cap-go/capacitor-home-indicator/compare/7.1.13...7.1.14) (2025-10-27)
 
 ## [7.1.13](https://github.com/Cap-go/capacitor-home-indicator/compare/7.1.12...7.1.13) (2025-10-27)
