@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.1.18](https://github.com/Cap-go/capacitor-home-indicator/compare/7.1.17...7.1.18) (2025-10-30)
+
+
+### Bug Fixes
+
+* pluginVersion lint issue ([0ac5f74](https://github.com/Cap-go/capacitor-home-indicator/commit/0ac5f746a262667ffeaf92f4e9b97ced66affbfe))
+
 ## [7.1.17](https://github.com/Cap-go/capacitor-home-indicator/compare/7.1.16...7.1.17) (2025-10-30)
 
 
