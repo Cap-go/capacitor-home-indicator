@@ -16,7 +16,7 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 @CapacitorPlugin(name = "HomeIndicator")
 public class HomeIndicatorPlugin extends Plugin {
 
-    public final String PLUGIN_VERSION = "7.1.15";
+    public final String pluginVersion = "7.1.15";
     private OrientationEventListener orientationEventListener;
     private int previousOrientation = Configuration.ORIENTATION_UNDEFINED;
 
@@ -72,7 +72,7 @@ public class HomeIndicatorPlugin extends Plugin {
     public void getPluginVersion(final PluginCall call) {
         try {
             final JSObject ret = new JSObject();
-            ret.put("version", this.PLUGIN_VERSION);
+            ret.put("version", this.pluginVersion);
             call.resolve(ret);
         } catch (final Exception e) {
             call.reject("Could not get plugin version", e);
