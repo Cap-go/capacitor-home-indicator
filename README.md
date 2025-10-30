@@ -84,13 +84,22 @@ npx cap sync
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
+Capacitor Home Indicator Plugin for controlling the iOS home indicator visibility.
+The home indicator is the horizontal bar at the bottom of iOS devices without a physical home button.
+
 ### hide()
 
 ```typescript
 hide() => Promise<void>
 ```
 
-Hide the home indicator.
+Hide the home indicator at the bottom of the screen.
+
+This visually hides the iOS home indicator bar, providing a more immersive
+full-screen experience. Users can still swipe up to access home, but the
+indicator will not be visible until they start the gesture.
+
+iOS only. Has no effect on Android or web.
 
 **Since:** 0.0.1
 
@@ -103,7 +112,12 @@ Hide the home indicator.
 show() => Promise<void>
 ```
 
-Show the home indicator.
+Show the home indicator at the bottom of the screen.
+
+This restores the default iOS home indicator visibility, making it
+always visible to the user. This is the default behavior.
+
+iOS only. Has no effect on Android or web.
 
 **Since:** 0.0.1
 
@@ -116,7 +130,9 @@ Show the home indicator.
 isHidden() => Promise<{ hidden: boolean; }>
 ```
 
-Get the home indicator status.
+Check whether the home indicator is currently hidden.
+
+Returns the current visibility state of the iOS home indicator.
 
 **Returns:** <code>Promise&lt;{ hidden: boolean; }&gt;</code>
 
@@ -131,9 +147,11 @@ Get the home indicator status.
 getPluginVersion() => Promise<{ version: string; }>
 ```
 
-Get the native Capacitor plugin version
+Get the native Capacitor plugin version.
 
 **Returns:** <code>Promise&lt;{ version: string; }&gt;</code>
+
+**Since:** 0.0.1
 
 --------------------
 
