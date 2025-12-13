@@ -84,25 +84,25 @@ public class HomeIndicatorPlugin extends Plugin {
         super.load();
         this.UiChangeListener();
         getActivity().runOnUiThread(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        // Don't set any UI visibility flags on load - let the app control this
-                        HomeIndicatorPlugin.this.setCssVar();
-                    }
+            new Runnable() {
+                @Override
+                public void run() {
+                    // Don't set any UI visibility flags on load - let the app control this
+                    HomeIndicatorPlugin.this.setCssVar();
                 }
-            );
+            }
+        );
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             // start task after 500ms in android
             new Handler().postDelayed(
-                    new Runnable() {
-                        @Override
-                        public void run() {
-                            HomeIndicatorPlugin.this.setCssVar();
-                        }
-                    },
-                    1000
-                );
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        HomeIndicatorPlugin.this.setCssVar();
+                    }
+                },
+                1000
+            );
         }
         // Add orientation change listener
         orientationEventListener = new OrientationEventListener(getContext()) {
@@ -123,53 +123,53 @@ public class HomeIndicatorPlugin extends Plugin {
     @PluginMethod
     public void hide(PluginCall call) {
         getActivity().runOnUiThread(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        View decorView = getActivity().getWindow().getDecorView();
-                        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
-                        decorView.setSystemUiVisibility(uiOptions);
-                        HomeIndicatorPlugin.this.setCssVar();
-                        JSObject ret = new JSObject();
-                        call.resolve(ret);
-                    }
+            new Runnable() {
+                @Override
+                public void run() {
+                    View decorView = getActivity().getWindow().getDecorView();
+                    int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+                    decorView.setSystemUiVisibility(uiOptions);
+                    HomeIndicatorPlugin.this.setCssVar();
+                    JSObject ret = new JSObject();
+                    call.resolve(ret);
                 }
-            );
+            }
+        );
     }
 
     @PluginMethod
     public void show(PluginCall call) {
         getActivity().runOnUiThread(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        View decorView = getActivity().getWindow().getDecorView();
-                        // Get current flags and remove only the navigation-related ones
-                        int currentFlags = decorView.getSystemUiVisibility();
-                        int newFlags = currentFlags & ~View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
-                        decorView.setSystemUiVisibility(newFlags);
-                        HomeIndicatorPlugin.this.setCssVar();
-                        JSObject ret = new JSObject();
-                        call.resolve(ret);
-                    }
+            new Runnable() {
+                @Override
+                public void run() {
+                    View decorView = getActivity().getWindow().getDecorView();
+                    // Get current flags and remove only the navigation-related ones
+                    int currentFlags = decorView.getSystemUiVisibility();
+                    int newFlags = currentFlags & ~View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+                    decorView.setSystemUiVisibility(newFlags);
+                    HomeIndicatorPlugin.this.setCssVar();
+                    JSObject ret = new JSObject();
+                    call.resolve(ret);
                 }
-            );
+            }
+        );
     }
 
     @PluginMethod
     public void isHidden(PluginCall call) {
         getActivity().runOnUiThread(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        View decorView = getActivity().getWindow().getDecorView();
-                        int uiOptions = decorView.getSystemUiVisibility();
-                        HomeIndicatorPlugin.this.setCssVar();
-                        JSObject ret = new JSObject();
-                        ret.put("hidden", (uiOptions & View.SYSTEM_UI_FLAG_HIDE_NAVIGATION) == View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-                        call.resolve(ret);
-                    }
+            new Runnable() {
+                @Override
+                public void run() {
+                    View decorView = getActivity().getWindow().getDecorView();
+                    int uiOptions = decorView.getSystemUiVisibility();
+                    HomeIndicatorPlugin.this.setCssVar();
+                    JSObject ret = new JSObject();
+                    ret.put("hidden", (uiOptions & View.SYSTEM_UI_FLAG_HIDE_NAVIGATION) == View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+                    call.resolve(ret);
                 }
-            );
+            }
+        );
     }
 }
