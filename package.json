@@ -24,6 +24,7 @@
   "bugs": {
     "url": "https://github.com/Cap-go/capacitor-home-indicator/issues"
   },
+  "homepage": "https://capgo.app/docs/plugins/home-indicator/",
   "keywords": [
     "capacitor",
     "plugin",
