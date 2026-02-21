@@ -26,15 +26,19 @@ public class HomeIndicatorPlugin extends Plugin {
             // Use WindowInsetsController listener for Android 11+
             final WindowInsetsController insetsController = this.getBridge().getActivity().getWindow().getInsetsController();
             if (insetsController != null) {
-                this.getBridge().getActivity().getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(
-                    new View.OnSystemUiVisibilityChangeListener() {
-                        @Override
-                        public void onSystemUiVisibilityChange(int visibility) {
-                            Log.i("HomeIndicator", "onSystemUiVisibilityChange");
-                            HomeIndicatorPlugin.this.setCssVar();
+                this.getBridge()
+                    .getActivity()
+                    .getWindow()
+                    .getDecorView()
+                    .setOnSystemUiVisibilityChangeListener(
+                        new View.OnSystemUiVisibilityChangeListener() {
+                            @Override
+                            public void onSystemUiVisibilityChange(int visibility) {
+                                Log.i("HomeIndicator", "onSystemUiVisibilityChange");
+                                HomeIndicatorPlugin.this.setCssVar();
+                            }
                         }
-                    }
-                );
+                    );
             }
         } else {
             final View decorView = this.getBridge().getActivity().getWindow().getDecorView();
