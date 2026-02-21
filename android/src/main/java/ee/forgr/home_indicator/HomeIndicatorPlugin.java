@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.OrientationEventListener;
 import android.view.View;
 import android.view.WindowInsets;
+import android.view.WindowInsetsController;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
@@ -16,21 +17,37 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 @CapacitorPlugin(name = "HomeIndicator")
 public class HomeIndicatorPlugin extends Plugin {
 
-    public final String pluginVersion = "7.1.15";
+    public final String pluginVersion = "8.0.19";
     private OrientationEventListener orientationEventListener;
     private int previousOrientation = Configuration.ORIENTATION_UNDEFINED;
 
     public void UiChangeListener() {
-        final View decorView = this.getBridge().getActivity().getWindow().getDecorView();
-        decorView.setOnSystemUiVisibilityChangeListener(
-            new View.OnSystemUiVisibilityChangeListener() {
-                @Override
-                public void onSystemUiVisibilityChange(int visibility) {
-                    Log.i("HomeIndicator", "onSystemUiVisibilityChange");
-                    HomeIndicatorPlugin.this.setCssVar();
-                }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            // Use WindowInsetsController listener for Android 11+
+            final WindowInsetsController insetsController = this.getBridge().getActivity().getWindow().getInsetsController();
+            if (insetsController != null) {
+                this.getBridge().getActivity().getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(
+                    new View.OnSystemUiVisibilityChangeListener() {
+                        @Override
+                        public void onSystemUiVisibilityChange(int visibility) {
+                            Log.i("HomeIndicator", "onSystemUiVisibilityChange");
+                            HomeIndicatorPlugin.this.setCssVar();
+                        }
+                    }
+                );
             }
-        );
+        } else {
+            final View decorView = this.getBridge().getActivity().getWindow().getDecorView();
+            decorView.setOnSystemUiVisibilityChangeListener(
+                new View.OnSystemUiVisibilityChangeListener() {
+                    @Override
+                    public void onSystemUiVisibilityChange(int visibility) {
+                        Log.i("HomeIndicator", "onSystemUiVisibilityChange");
+                        HomeIndicatorPlugin.this.setCssVar();
+                    }
+                }
+            );
+        }
     }
 
     private void setCssVar() {
@@ -126,9 +143,17 @@ public class HomeIndicatorPlugin extends Plugin {
             new Runnable() {
                 @Override
                 public void run() {
-                    View decorView = getActivity().getWindow().getDecorView();
-                    int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
-                    decorView.setSystemUiVisibility(uiOptions);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                        WindowInsetsController insetsController = getActivity().getWindow().getInsetsController();
+                        if (insetsController != null) {
+                            insetsController.hide(WindowInsets.Type.navigationBars());
+                            insetsController.setSystemBarsBehavior(WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+                        }
+                    } else {
+                        View decorView = getActivity().getWindow().getDecorView();
+                        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+                        decorView.setSystemUiVisibility(uiOptions);
+                    }
                     HomeIndicatorPlugin.this.setCssVar();
                     JSObject ret = new JSObject();
                     call.resolve(ret);
@@ -143,11 +168,17 @@ public class HomeIndicatorPlugin extends Plugin {
             new Runnable() {
                 @Override
                 public void run() {
-                    View decorView = getActivity().getWindow().getDecorView();
-                    // Get current flags and remove only the navigation-related ones
-                    int currentFlags = decorView.getSystemUiVisibility();
-                    int newFlags = currentFlags & ~View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
-                    decorView.setSystemUiVisibility(newFlags);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                        WindowInsetsController insetsController = getActivity().getWindow().getInsetsController();
+                        if (insetsController != null) {
+                            insetsController.show(WindowInsets.Type.navigationBars());
+                        }
+                    } else {
+                        View decorView = getActivity().getWindow().getDecorView();
+                        int currentFlags = decorView.getSystemUiVisibility();
+                        int newFlags = currentFlags & ~View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+                        decorView.setSystemUiVisibility(newFlags);
+                    }
                     HomeIndicatorPlugin.this.setCssVar();
                     JSObject ret = new JSObject();
                     call.resolve(ret);
@@ -162,11 +193,20 @@ public class HomeIndicatorPlugin extends Plugin {
             new Runnable() {
                 @Override
                 public void run() {
-                    View decorView = getActivity().getWindow().getDecorView();
-                    int uiOptions = decorView.getSystemUiVisibility();
+                    boolean hidden = false;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                        WindowInsets insets = getActivity().getWindow().getDecorView().getRootWindowInsets();
+                        if (insets != null) {
+                            hidden = !insets.isVisible(WindowInsets.Type.navigationBars());
+                        }
+                    } else {
+                        View decorView = getActivity().getWindow().getDecorView();
+                        int uiOptions = decorView.getSystemUiVisibility();
+                        hidden = (uiOptions & View.SYSTEM_UI_FLAG_HIDE_NAVIGATION) == View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+                    }
                     HomeIndicatorPlugin.this.setCssVar();
                     JSObject ret = new JSObject();
-                    ret.put("hidden", (uiOptions & View.SYSTEM_UI_FLAG_HIDE_NAVIGATION) == View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+                    ret.put("hidden", hidden);
                     call.resolve(ret);
                 }
             }
