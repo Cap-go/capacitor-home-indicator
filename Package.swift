@@ -2,11 +2,11 @@
 import PackageDescription
 
 let package = Package(
-    name: "CapgoHomeIndicator",
+    name: "CapgoCapacitorHomeIndicator",
     platforms: [.iOS(.v15)],
     products: [
         .library(
-            name: "CapgoHomeIndicator",
+            name: "CapgoCapacitorHomeIndicator",
             targets: ["CapgoHomeIndicatorPlugin"])
     ],
     dependencies: [
