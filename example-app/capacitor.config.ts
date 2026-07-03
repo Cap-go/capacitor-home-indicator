@@ -4,7 +4,7 @@ import pkg from './package.json';
 
 const config: CapacitorConfig = {
   appId: 'app.capgo.home.indicator.example',
-  appName: 'Home Indicator Example',
+  appName: '@capgo/capacitor-home-indicator',
   bundledWebRuntime: false,
   webDir: 'dist',
   plugins: {
