@@ -1,10 +1,27 @@
 # @capgo/capacitor-home-indicator
-<a href="https://capgo.app/"><img src="https://capgo.app/readme-banner.svg?repo=Cap-go/capacitor-home-indicator" alt="Capgo - Instant updates for Capacitor" /></a>
+
+Hide or show the home indicator bar from your Capacitor app for immersive screens like video, games and kiosks.
+
+<a href="https://capgo.app/?ref=plugin_home_indicator"><img src="https://capgo.app/readme-banner.svg?repo=Cap-go/capacitor-home-indicator" alt="Capgo - Instant updates for Capacitor" /></a>
 
 <div align="center">
-  <h2><a href="https://capgo.app/?ref=plugin_home_indicator"> ➡️ Get Instant updates for your App with Capgo</a></h2>
-  <h2><a href="https://capgo.app/consulting/?ref=plugin_home_indicator"> Missing a feature? We’ll build the plugin for you 💪</a></h2>
+  <p><b>Capgo</b>: open-source live updates for Ionic and Capacitor apps. Ship OTA fixes and features instantly, without waiting for app store review.</p>
+  <h2><a href="https://capgo.app/register/?ref=plugin_home_indicator">➡️ Get started for free</a></h2>
+  <p>14-day unlimited free trial. No credit card required</p>
+  <p><a href="https://capgo.app/consulting/?ref=plugin_home_indicator">Missing a feature? We'll build the plugin for you 💪</a></p>
 </div>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Cap-go/capacitor-home-indicator/main/assets/github-social-preview.png" alt="@capgo/capacitor-home-indicator for Capacitor apps" width="300" />
+</p>
+
+## Key features
+
+- **Hide**: `hide()` hides the home indicator.
+- **Show**: `show()` brings it back.
+- **State**: `isHidden()` reports the current state.
+- **iOS**: uses the view controller's auto-hidden home indicator preference.
+- **Platforms**: iOS and Android. Android needs a small `MainActivity` change described below.
 
 hide and show home button indicator in Capacitor app
 
@@ -22,7 +39,6 @@ import android.os.Bundle;
 import com.getcapacitor.BridgeActivity;
 
 public class MainActivity extends BridgeActivity {
-
 
     void fixSafeArea() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
