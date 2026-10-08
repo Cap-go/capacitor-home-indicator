@@ -1,12 +1,14 @@
-## Created with Capacitor Create App
+## Home indicator example
 
-This app was created using [`@capacitor/create-app`](https://github.com/ionic-team/create-capacitor-app),
-and comes with a very minimal shell for building an app.
-
-### Running this example
-
-To run the provided example, you can use `npm start` command.
+Demo UI for `@capgo/capacitor-home-indicator`. Run the web build to exercise the JavaScript API (native iOS is required to see the bar change).
 
 ```bash
-npm start
+bun install
+bun run start
+```
+
+Build for Capacitor sync:
+
+```bash
+bun run build
 ```

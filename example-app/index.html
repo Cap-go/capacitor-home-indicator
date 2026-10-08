@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <title>@capgo/capacitor-home-indicator</title>
+    <link rel="icon" type="image/x-icon" href="/src/assets/icon/favicon.ico" />
+    <link rel="manifest" href="/src/manifest.json" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <meta name="theme-color" content="#4f46e5" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="brand">
+        <img class="brand-logo" src="/capgo-icon.png" alt="Capgo" width="40" height="40" />
+        <div>
+          <p class="eyebrow">Capgo plugin example</p>
+          <h1>Home indicator</h1>
+        </div>
+      </header>
+
+      <p class="lead">
+        Control the iOS home indicator bar on Face ID iPhones. The bar at the bottom of the screen can be hidden for
+        immersive layouts or shown again for discoverability. Android and web builds ignore these calls.
+      </p>
+
+      <div class="status-grid">
+        <div class="status-card">
+          <h2>Platform</h2>
+          <p id="platform-label">Detecting...</p>
+        </div>
+        <div class="status-card">
+          <h2>Indicator</h2>
+          <span id="hidden-badge" class="badge" data-hidden="unknown">Checking...</span>
+        </div>
+        <div class="status-card">
+          <h2>Plugin version</h2>
+          <p id="version-label">Tap refresh</p>
+        </div>
+      </div>
+
+      <section class="panel">
+        <p class="panel-title">Actions</p>
+        <div class="actions">
+          <button type="button" id="hide-indicator">Hide indicator</button>
+          <button type="button" id="show-indicator" class="secondary">Show indicator</button>
+          <button type="button" id="refresh-status" class="secondary">Refresh status</button>
+          <button type="button" id="get-version" class="ghost">Get plugin version</button>
+        </div>
+      </section>
+
+      <section class="panel log-panel">
+        <p class="panel-title">Output</p>
+        <pre id="plugin-output">Waiting for first action...</pre>
+      </section>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
