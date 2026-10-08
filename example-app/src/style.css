@@ -145,7 +145,8 @@ body {
   border-color: rgba(34, 197, 94, 0.4);
 }
 
-.badge[data-hidden='unknown'] {
+.badge[data-hidden='unknown'],
+.badge[data-hidden='unavailable'] {
   background: rgba(148, 163, 184, 0.15);
   border-color: var(--border);
 }
@@ -183,8 +184,8 @@ button {
     transform 0.15s ease,
     filter 0.15s ease,
     box-shadow 0.15s ease;
-  background: linear-gradient(120deg, var(--accent-alt), var(--accent));
-  color: #ffffff;
+  background: linear-gradient(120deg, #0e7490, #4338ca);
+  color: #f8fafc;
   box-shadow: 0 10px 20px rgba(79, 70, 229, 0.22);
 }
 

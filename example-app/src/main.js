@@ -17,6 +17,11 @@ const setOutput = (value) => {
 };
 
 const setHiddenBadge = (hidden) => {
+  if (hidden === 'unavailable') {
+    hiddenBadge.textContent = 'Not available';
+    hiddenBadge.dataset.hidden = 'unavailable';
+    return;
+  }
   if (hidden === null || hidden === undefined) {
     hiddenBadge.textContent = 'Unknown';
     hiddenBadge.dataset.hidden = 'unknown';
@@ -25,6 +30,8 @@ const setHiddenBadge = (hidden) => {
   hiddenBadge.textContent = hidden ? 'Hidden' : 'Visible';
   hiddenBadge.dataset.hidden = hidden ? 'true' : 'false';
 };
+
+const isWebPreview = () => Capacitor.getPlatform() === 'web';
 
 const formatPlatform = () => {
   const platform = Capacitor.getPlatform();
@@ -40,21 +47,30 @@ const formatPlatform = () => {
 platformLabel.textContent = formatPlatform();
 
 async function refreshStatus() {
+  if (isWebPreview()) {
+    setHiddenBadge('unavailable');
+    setOutput('isHidden() is not available on web. Run on iOS to read indicator state.');
+    return true;
+  }
   try {
     const result = await HomeIndicator.isHidden();
     setHiddenBadge(result.hidden);
     setOutput(result);
+    return true;
   } catch (error) {
     setHiddenBadge(null);
     setOutput(`Error: ${error?.message ?? error}`);
+    return false;
   }
 }
 
 async function hideIndicator() {
   try {
     await HomeIndicator.hide();
-    await refreshStatus();
-    setOutput('hide() resolved. On iOS the home indicator should stay hidden until you swipe up.');
+    const refreshed = await refreshStatus();
+    if (refreshed) {
+      setOutput('hide() resolved. On iOS the home indicator should stay hidden until you swipe up.');
+    }
   } catch (error) {
     setOutput(`Error: ${error?.message ?? error}`);
   }
@@ -63,8 +79,10 @@ async function hideIndicator() {
 async function showIndicator() {
   try {
     await HomeIndicator.show();
-    await refreshStatus();
-    setOutput('show() resolved. On iOS the home indicator should remain visible.');
+    const refreshed = await refreshStatus();
+    if (refreshed) {
+      setOutput('show() resolved. On iOS the home indicator should remain visible.');
+    }
   } catch (error) {
     setOutput(`Error: ${error?.message ?? error}`);
   }
