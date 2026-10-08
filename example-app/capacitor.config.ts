@@ -8,10 +8,6 @@ const config: CapacitorConfig = {
   bundledWebRuntime: false,
   webDir: 'dist',
   plugins: {
-    SplashScreen: {
-      launchAutoHide: false,
-      launchShowDuration: 0,
-    },
     CapacitorUpdater: {
       appId: 'app.capgo.home.indicator.example',
       autoUpdate: true,
